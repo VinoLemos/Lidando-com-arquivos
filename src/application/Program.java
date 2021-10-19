@@ -3,12 +3,16 @@ package application;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Program {
 
 	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
 		
-		String path = "/home/vino/Documents/Teste.txt";//Alterar conforme necessário
+		System.out.print("Informe o caminho do arquivo: ");
+		String path = sc.nextLine();//Recebe o caminho do arquivo
+		
 		FileReader fr = null; // Sequencia de leitura a partir de um arquivo
 		BufferedReader br = null; // Instanciado a partir do FileReader, implementando algumas otimizações
 		
