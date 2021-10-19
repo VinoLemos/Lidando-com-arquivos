@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Program {
+	
+	//Utilizando bloco try with resources para instanciar um BufferedReader recebendo um FileReader como parâmetro
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -13,12 +15,8 @@ public class Program {
 		System.out.print("Informe o caminho do arquivo: ");
 		String path = sc.nextLine();//Recebe o caminho do arquivo
 		
-		FileReader fr = null; // Sequencia de leitura a partir de um arquivo
-		BufferedReader br = null; // Instanciado a partir do FileReader, implementando algumas otimizações
 		
-		try {
-			fr = new FileReader(path);
-			br = new BufferedReader(fr);
+		try (BufferedReader br = new BufferedReader(new FileReader(path))){
 			
 			String line = br.readLine();
 			
@@ -30,19 +28,7 @@ public class Program {
 		catch (IOException e){
 			System.out.println("Error: " + e.getMessage());	
 		}
-		finally {
-			try {
-				if (br != null) {
-					br.close();	
-				}
-				if (fr != null) {
-					fr.close();
-				}
-			}
-			catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		
+
+	sc.close();	
 	}
 }
