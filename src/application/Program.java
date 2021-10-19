@@ -1,7 +1,6 @@
 package application;
 
 import java.io.File;
-import java.nio.file.Files;
 import java.util.Scanner;
 
 public class Program {
@@ -39,6 +38,18 @@ public class Program {
 		//Cria um novo diretorio, com o nome definido nos parametros do arquivo (diretorio criado a partir da função mkdir())
 		boolean sucesso = new File(pastaCam + "\\subdiretorio").mkdir();
 		System.out.println("Diretorio criado com sucesso - " + sucesso);
+		
+		System.out.println();
+		System.out.println("---------------------------------------------------------");
+		
+		System.out.println("Obtendo informações de um arquivo");
+		
+		File file = new File("/home/vino/Documents/Teste.txt");
+		
+		System.out.println("getName: " + file.getName());//Retorna o nome do arquivo
+		System.out.println("getParent: " + file.getParent());//Retorna o caminho do arquivo
+		System.out.println("getPath: " + file.getPath());//Retorna o caminho com nome do arquivo
+		System.out.println("getFreeSpace: " + file.getFreeSpace());//Retorna o espaço livre do arquivo
 		
 		sc.close();
 	}
