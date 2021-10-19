@@ -7,10 +7,17 @@ import java.util.Scanner;
 public class Program {
 
 	public static void main(String[] args) {
-		
+		Scanner scanner = new Scanner(System.in);
 		Scanner sc = null;
 		//Arquivo criado recebendo como parametro o caminho para o arquivo em disco
-		File file = new File("/home/vino/Documents/Teste.txt");//Alterar caminho do arquivo conforme necessário
+		
+		System.out.print("Informe o caminho do arquivo: ");
+		
+		String caminho = scanner.nextLine();
+		
+		File file = new File(caminho);//Recebe o caminho do arquivo
+		
+		scanner.close();
 		
 		try {
 			//Atribui o arquivo ao Scanner para que possa ser lido
